@@ -1,4 +1,4 @@
-const int mazeSize = 16;
+#define mazeSize 16
 int maze[mazeSize][mazeSize];
 int playerVec[] = {1, 1};
 int select = 0;
@@ -7,7 +7,11 @@ int num = 0;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  select = random(1);
+  int mazeVal = getMapSize();
+  Serial.println(mazeVal);
+  select = random(mazeVal);
+  setMap();
+  showMap();
 }
 
 void loop() {
